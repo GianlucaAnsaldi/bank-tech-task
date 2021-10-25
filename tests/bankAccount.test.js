@@ -29,4 +29,10 @@ describe('BankAccount', () => {
     bankAccount.withdraw(5);
     expect(bankAccount.balance).toBe(5);
   });
+
+  test('can print the header of the statement', () => {
+    expect(bankAccount.printHeader()).toEqual(
+      'date || credit || debit || balance'
+    );
+  });
 });

@@ -14,6 +14,10 @@ class BankAccount {
   showBalance() {
     return this.balance;
   }
+
+  printHeader() {
+    return 'date || credit || debit || balance';
+  }
 }
 
 module.exports = BankAccount;
