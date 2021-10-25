@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1635178122424" clover="3.2.0">
-  <project timestamp="1635178122424" name="All files">
-    <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2" elements="6" coveredelements="6" complexity="0" loc="3" ncloc="3" packages="1" files="1" classes="1"/>
+<coverage generated="1635178507347" clover="3.2.0">
+  <project timestamp="1635178507347" name="All files">
+    <metrics statements="5" coveredstatements="5" conditionals="1" coveredconditionals="1" methods="4" coveredmethods="4" elements="10" coveredelements="10" complexity="0" loc="5" ncloc="5" packages="1" files="1" classes="1"/>
     <file name="bankAccount.js" path="/Users/gianlucaansaldi/Makers/Course/projects/bank-tech-task/src/bankAccount.js">
-      <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
-      <line num="3" count="3" type="stmt"/>
-      <line num="7" count="1" type="stmt"/>
+      <metrics statements="5" coveredstatements="5" conditionals="1" coveredconditionals="1" methods="4" coveredmethods="4"/>
+      <line num="3" count="5" type="stmt"/>
+      <line num="7" count="2" type="stmt"/>
       <line num="11" count="1" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
