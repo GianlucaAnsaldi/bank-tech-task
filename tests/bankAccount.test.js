@@ -1,9 +1,17 @@
-const bankAccount = require('../src/bankAccount');
+const BankAccount = require('../src/bankAccount');
 
-test('a new bank account to be an instance of Bank Account', () => {
-  expect(new bankAccount()).toBeInstanceOf(bankAccount);
-});
+describe('BankAccount', () => {
+  let bankAccount;
 
-test('a new bank account to be an instance of Bank Account', () => {
-  expect(new bankAccount().balance).toBe(0);
+  beforeEach(() => {
+    bankAccount = new BankAccount();
+  });
+
+  test('a new bank account to be an instance of Bank Account', () => {
+    expect(bankAccount).toBeInstanceOf(BankAccount);
+  });
+
+  test('a new bank account should have balance of 0', () => {
+    expect(bankAccount.balance).toBe(0);
+  });
 });
