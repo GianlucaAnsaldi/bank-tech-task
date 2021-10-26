@@ -1,14 +1,22 @@
 class AccountHistory {
   constructor() {
-    this.transactions = [];
+    this.transactionList = [];
+  }
+
+  getTransactions() {
+    return this.transactionList;
   }
 
   addDeposit(amt, currentBalance) {
-    this.transactions.push(['deposit', parseInt(`${amt}`), currentBalance]);
+    this.transactionList.push(['deposit', parseInt(`${amt}`), currentBalance]);
   }
 
   addWithdrawal(amt, currentBalance) {
-    this.transactions.push(['withdrawal', parseInt(`${amt}`), currentBalance]);
+    this.transactionList.push([
+      'withdrawal',
+      parseInt(`${amt}`),
+      currentBalance,
+    ]);
   }
 }
 
