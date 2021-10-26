@@ -1,5 +1,4 @@
 const BankAccount = require('../src/bankAccount');
-// import BankAccount from '../src/bankAccount.js';
 
 describe('BankAccount', () => {
   let bankAccount;
@@ -63,6 +62,18 @@ describe('BankAccount', () => {
       bankAccount.deposit(10);
       bankAccount.printBody();
       expect(console.log).toHaveBeenCalledWith('date || 10 || || 10');
+    });
+
+    test('can print the full statement', () => {
+      bankAccount.deposit(10);
+      bankAccount.withdraw(3);
+      bankAccount.printStatement();
+      expect(console.log).toHaveBeenNthCalledWith(
+        1,
+        'date || credit || debit || balance'
+      );
+      expect(console.log).toHaveBeenNthCalledWith(2, 'date || || 3 || 7');
+      expect(console.log).toHaveBeenNthCalledWith(3, 'date || 10 || || 10');
     });
   });
 });

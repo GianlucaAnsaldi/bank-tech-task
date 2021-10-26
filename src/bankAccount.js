@@ -25,12 +25,19 @@ class BankAccount {
   }
 
   printBody() {
-    this.history.map((transaction) => {
-      console.log(`date || ${transaction[1]} || || ${transaction[2]}`);
+    this.history.reverse().map((transaction) => {
+      if (transaction[0] == 'deposit') {
+        console.log(`date || ${transaction[1]} || || ${transaction[2]}`);
+      } else {
+        console.log(`date || || ${transaction[1]} || ${transaction[2]}`);
+      }
     });
+  }
+
+  printStatement() {
+    this.printHeader();
+    this.printBody();
   }
 }
 
 module.exports = BankAccount;
-
-// history = new AccountHistory();
