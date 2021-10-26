@@ -37,6 +37,14 @@ describe('BankAccount', () => {
     expect(bankAccount.balance).toBe(5);
   });
 
+  test('withdrawl is stored into the history arrray', () => {
+    bankAccount.deposit(10);
+    bankAccount.withdraw(3);
+    expect(bankAccount.history[1]).toContain('withdrawal');
+    expect(bankAccount.history[1]).toContain(3);
+    expect(bankAccount.history[1]).toContain(7);
+  });
+
   test('can print the header of the statement', () => {
     expect(bankAccount.printHeader()).toEqual(
       'date || credit || debit || balance'
