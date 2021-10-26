@@ -1,4 +1,5 @@
 const BankAccount = require('../src/bankAccount');
+// import BankAccount from '../src/bankAccount.js';
 
 describe('BankAccount', () => {
   let bankAccount;
@@ -22,6 +23,12 @@ describe('BankAccount', () => {
   test('can deposit money on the account', () => {
     bankAccount.deposit(10);
     expect(bankAccount.balance).toBe(10);
+  });
+
+  test('deposit is stored into the history arrray', () => {
+    bankAccount.deposit(10);
+    expect(bankAccount.history[0]).toContain('deposit');
+    expect(bankAccount.history[0]).toContain(10);
   });
 
   test('can withdraw money from the account', () => {
