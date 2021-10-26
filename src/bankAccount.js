@@ -21,7 +21,13 @@ class BankAccount {
   }
 
   printHeader() {
-    return 'date || credit || debit || balance';
+    console.log('date || credit || debit || balance');
+  }
+
+  printBody() {
+    this.history.map((transaction) => {
+      console.log(`date || ${transaction[1]} || || ${transaction[2]}`);
+    });
   }
 }
 

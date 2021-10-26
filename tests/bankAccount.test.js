@@ -45,9 +45,24 @@ describe('BankAccount', () => {
     expect(bankAccount.history[1]).toContain(7);
   });
 
-  test('can print the header of the statement', () => {
-    expect(bankAccount.printHeader()).toEqual(
-      'date || credit || debit || balance'
-    );
+  describe('Printing statement', () => {
+    console.log = jest.fn();
+
+    afterEach(() => {
+      console.log.mockRestore();
+    });
+
+    test('can print the header of the statement', () => {
+      bankAccount.printHeader();
+      expect(console.log).toHaveBeenCalledWith(
+        'date || credit || debit || balance'
+      );
+    });
+
+    test('can print the body of the statement', () => {
+      bankAccount.deposit(10);
+      bankAccount.printBody();
+      expect(console.log).toHaveBeenCalledWith('date || 10 || || 10');
+    });
   });
 });
