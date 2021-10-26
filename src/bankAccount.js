@@ -1,19 +1,19 @@
-// const AccountHistory = require('./accountHistory');
+const AccountHistory = require('./accountHistory');
 
 class BankAccount {
-  constructor(balance = 0) {
+  constructor(balance = 0, accountHistory = new AccountHistory()) {
     this.balance = balance;
-    this.history = [];
+    this.accountHistory = accountHistory;
   }
 
   deposit(amt) {
     this.balance += amt;
-    this.history.push(['deposit', parseInt(`${amt}`), this.balance]);
+    this.accountHistory.addDeposit(amt, this.balance);
   }
 
   withdraw(amt) {
     this.balance -= amt;
-    this.history.push(['withdrawal', parseInt(`${amt}`), this.balance]);
+    this.accountHistory.addWithdrawal(amt, this.balance);
   }
 
   showBalance() {
@@ -25,7 +25,7 @@ class BankAccount {
   }
 
   printBody() {
-    this.history.reverse().map((transaction) => {
+    this.accountHistory.transactions.reverse().map((transaction) => {
       if (transaction[0] == 'deposit') {
         console.log(`date || ${transaction[1]} || || ${transaction[2]}`);
       } else {
