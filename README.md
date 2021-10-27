@@ -12,10 +12,14 @@ This code will simulate a bank account, where you'll be able to deposit/withdraw
 - launch Node.js REPL on the terminal `node`
 - load the bankAccount.js file `.load bankAccount.js`
 
-## Hot to test
+## How to test
 
 - clone and install dependencies like in the previous steps
 - run tests in the terminal with `npm test`
+
+## Preview
+
+<div style="text-align:center"><img src="./img/bank_account_preview.png" /></div>
 
 ## Requirements
 
