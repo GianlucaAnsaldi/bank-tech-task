@@ -1,5 +1,6 @@
 const BankAccount = require('../src/bankAccount');
-const statement = require('../src/statement');
+const Statement = require('../src/statement');
+jest.mock('../src/statement');
 
 describe('BankAccount', () => {
   let bankAccount;
@@ -31,9 +32,8 @@ describe('BankAccount', () => {
     expect(bankAccount.balance).toBe(5);
   });
 
-  // test('it calls _printStatement method on statement object', () => {
-  //   const spy = jest.spyOn(statement, '_printStatement');
-  //   bankAccount.printBankStatement();
-  //   expect(spy).toHaveBeenCalled();
-  // });
+  test('it calls _printStatement method on statement object', () => {
+    bankAccount.printBankStatement();
+    expect(Statement).toHaveBeenCalledTimes(1);
+  });
 });
