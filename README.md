@@ -74,3 +74,12 @@ As a customer
 so that I can review my transactions
 I would like to be able to print a statement
 ```
+## Code structure
+
+The code is split in three different classes:
+
+- BankAccount is the main class, it contains the methods that a user will be able to interact with (deposit, withdraw, showBalance and printBankStatement). It also instantiates the initial balance and an object from the AccountHistory class.
+
+- AccountHistory class is where all the transactions are recorded into an array. I also used this class to format the date for each transaction before pushing it into the array.
+
+- Statement class only purpose is to take responsibilities out of the BankAccount class, so that all the work necessary to print out the statement are done in this class. It have methods to print out the header and the body of the statement, which loops through the array of transactions and check if it should be printed out as a deposit or a withdrawal.
