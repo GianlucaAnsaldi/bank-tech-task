@@ -1,5 +1,3 @@
-const AccountHistory = require('./accountHistory');
-
 class Statement {
   _printStatement(transactions) {
     this._printHeader();
