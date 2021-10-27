@@ -1,4 +1,5 @@
 const BankAccount = require('../src/bankAccount');
+const statement = require('../src/statement');
 
 describe('BankAccount', () => {
   let bankAccount;
@@ -29,4 +30,10 @@ describe('BankAccount', () => {
     bankAccount.withdraw(5);
     expect(bankAccount.balance).toBe(5);
   });
+
+  // test('it calls _printStatement method on statement object', () => {
+  //   const spy = jest.spyOn(statement, '_printStatement');
+  //   bankAccount.printBankStatement();
+  //   expect(spy).toHaveBeenCalled();
+  // });
 });

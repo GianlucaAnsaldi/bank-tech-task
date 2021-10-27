@@ -7,23 +7,23 @@ class BankAccount {
     this.accountHistory = accountHistory;
   }
 
-  deposit(amt) {
+  deposit(amt, date = new Date()) {
     this.balance += amt;
-    this.accountHistory.addDeposit(amt, this.balance);
+    this.accountHistory._addDeposit(date, amt, this.balance);
   }
 
-  withdraw(amt) {
+  withdraw(amt, date = new Date()) {
     this.balance -= amt;
-    this.accountHistory.addWithdrawal(amt, this.balance);
+    this.accountHistory._addWithdrawal(date, amt, this.balance);
   }
 
   showBalance() {
     return this.balance;
   }
 
-  printBankStatement(transactions = this.accountHistory.getTransactions()) {
+  printBankStatement(transactions = this.accountHistory._getTransactions()) {
     let statement = new Statement();
-    statement.printStatement(transactions);
+    statement._printStatement(transactions);
   }
 }
 

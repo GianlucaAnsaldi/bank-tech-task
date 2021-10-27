@@ -14,29 +14,35 @@ describe('Printing statement', () => {
   });
 
   test('can print the header of the statement', () => {
-    statement.printHeader();
+    statement._printHeader();
     expect(console.log).toHaveBeenCalledWith(
       'date || credit || debit || balance'
     );
   });
 
   test('can print the body of the statement', () => {
-    let mockTransactions = [['deposit', 10, 10]];
-    statement.printBody(mockTransactions);
-    expect(console.log).toHaveBeenCalledWith('date || 10 || || 10');
+    let mockTransactions = [['27-10-2021', 'deposit', 10, 10]];
+    statement._printBody(mockTransactions);
+    expect(console.log).toHaveBeenCalledWith('27-10-2021 || 10.00 || || 10.00');
   });
 
   test('can print the full statement', () => {
     let mockTransactions = [
-      ['deposit', 10, 10],
-      ['withdrawal', 3, 7],
+      ['27-10-2021', 'deposit', 10, 10],
+      ['27-10-2021', 'withdrawal', 3, 7],
     ];
-    statement.printStatement(mockTransactions);
+    statement._printStatement(mockTransactions);
     expect(console.log).toHaveBeenNthCalledWith(
       1,
       'date || credit || debit || balance'
     );
-    expect(console.log).toHaveBeenNthCalledWith(2, 'date || || 3 || 7');
-    expect(console.log).toHaveBeenNthCalledWith(3, 'date || 10 || || 10');
+    expect(console.log).toHaveBeenNthCalledWith(
+      2,
+      '27-10-2021 || || 3.00 || 7.00'
+    );
+    expect(console.log).toHaveBeenNthCalledWith(
+      3,
+      '27-10-2021 || 10.00 || || 10.00'
+    );
   });
 });

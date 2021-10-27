@@ -1,21 +1,29 @@
-// const AccountHistory = require('./accountHistory');
+const AccountHistory = require('./accountHistory');
 
 class Statement {
-  printStatement(transactions) {
-    this.printHeader();
-    this.printBody(transactions);
+  _printStatement(transactions) {
+    this._printHeader();
+    this._printBody(transactions);
   }
 
-  printHeader() {
+  _printHeader() {
     console.log('date || credit || debit || balance');
   }
 
-  printBody(transactions) {
+  _printBody(transactions) {
     transactions.reverse().map((transaction) => {
-      if (transaction[0] == 'deposit') {
-        console.log(`date || ${transaction[1]} || || ${transaction[2]}`);
+      if (transaction[1] == 'deposit') {
+        console.log(
+          `${transaction[0]} || ${transaction[2].toFixed(
+            2
+          )} || || ${transaction[3].toFixed(2)}`
+        );
       } else {
-        console.log(`date || || ${transaction[1]} || ${transaction[2]}`);
+        console.log(
+          `${transaction[0]} || || ${transaction[2].toFixed(
+            2
+          )} || ${transaction[3].toFixed(2)}`
+        );
       }
     });
   }
